@@ -249,7 +249,8 @@ Type coercion occurs when values of different data types are compared or used to
 There are 2 types :
 There are two types of type coercion: implicit and explicit.
 implicit:
-Type coercion is the process of converting a value from one data type to another. In JavaScript, type coercion happens implicitly when operators or functions are applied to values of different types. For example, if you try to add a string and a number using 
+Type coercion is the process of converting a value from one data type to another. In JavaScript, type coercion
+ happens implicitly when operators or functions are applied to values of different types. For example, if you try to add a string and a number using 
 the "+" operator, JavaScript will convert the number to a string and concatenate the two values.
 
 let num = 10;
@@ -308,7 +309,7 @@ isNaN(undefined) // Returns true
 
 14.
 Explain passed by value and passed by reference?
-In JavaScript, primitive data types are passed by value and non-primitive data types are passed by reference.
+In JavaScript, primitive data types are passed by value and non-primitive data types are passed by reference.shallow
 * For understanding passed by value and passed by reference, we need to understand what happens when we create a variable and assign a value to it,
 * Basically, pass-by-value means that the actual value of the variable is passed and pass-by-reference means the memory location is passed 
 where the value of the variable is stored.
@@ -404,8 +405,8 @@ slice:
 
 Purpose: Returns a shallow copy of a portion of an array into a new array object. It does not modify the original array.
 Syntax: array.slice(start, end)
-javascript
-Copy code
+The slice() method in JavaScript returns a shallow copy of a portion of an array into a new array object selected from start to end (
+end not included) where start and end represent the index of items in that array.
 let numbers = [1, 2, 3, 4, 5];
 let slicedArray = numbers.slice(1, 4);
 console.log(slicedArray); // Output: [2, 3, 4]
@@ -414,17 +415,16 @@ splice:
 
 Purpose: Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
 Syntax: array.splice(start, deleteCount, item1, ..., itemN)
-javascript
-Copy code
+start: The index at which to start changing the array.
+deleteCount: The number of elements to remove from the array. If set to 0, no elements are removed.
+item1, ..., itemN: The elements to add to the array at the specified start index.
 let fruits = ['apple', 'banana', 'orange', 'grape'];
 fruits.splice(1, 2, 'kiwi', 'melon');
 console.log(fruits); // Output: ['apple', 'kiwi', 'melon', 'grape']
 pop:
-
 Purpose: Removes the last element from an array and returns that removed element. It also updates the length property of the array.
 Syntax: array.pop()
-javascript
-Copy code
+
 let fruits = ['apple', 'banana', 'orange'];
 let removed = fruits.pop();
 console.log(removed); // Output: 'orange'
@@ -475,6 +475,13 @@ Undefined: a variable is 'declared', it has its own placeholder but not having t
 'undefined' and until the variable has assigned a value, the 'undefined' fills that particular placeholder
 and 'undefined' is itself a datatype
 (really sorry for referencing with c++ concepts)
+Certainly! In JavaScript, there's a distinction between a variable that is declared but not assigned a value (resulting in undefined) and a
+ variable that is not declared at all (resulting in ReferenceError).
+ var definedVariable;
+console.log(definedVariable); // Output: undefined
+
+console.log(undefinedVariable); // Output: ReferenceError: undefinedVariable is not defined
+
 
 Not Defined: This case comes in error where js engine neither find that particular variable nor its placeholder
  and cannot find the variable in 1st phase of context (Memory allocation context)
@@ -511,6 +518,10 @@ a();
 
 -> let and const are hoisted. we cant use them before initialization is result of "temporal dead zone".
 -> js use diff memory than global execution context to store let and cost. which is reason behind "temporal dead zone"
+Temporal dead zone (TDZ)
+A variable declared with let , const , or class is said to be in a "temporal dead zone" (TDZ) from the start of the block until code execution reaches the place 
+where the variable is declared and initialized.
+The TDZ is the period of time between the creation of a variable and the point where it is initialized with a value.
 -> level of strictness ... var<<let<<const.
 -> var //no temporal dead zone, can redeclare and re-initialize, stored in GES
     let //use TDZ, can't re-declare, can re-initialize, stored in separate memory
@@ -569,6 +580,13 @@ function x() {
     console.log("Namaste");
 }
 x();
+The outer function x() defines a loop that iterates from 1 to 5.
+Inside the loop, the close() function is defined. This function takes a parameter x.
+Within the close() function, a setTimeout() function is called. This sets up an asynchronous operation that will execute after a certain delay (specified in milliseconds).
+Inside the setTimeout() callback function (which is defined using an arrow function), x is logged to the console.
+The close() function is called within each iteration of the loop, passing the current value of i as its argument. This creates a closure over the current value of i for each invocation of close().
+As a result, each setTimeout() callback has access to its own copy of x, which is the value passed to close() during its invocation.
+When the setTimeout() callbacks execute after their respective delays, they access and log the value of x that was captured in the closure. This results in logging the numbers 1, 2, 3, 4, and 5 after delays of 1, 2, 3, 4, and 5 seconds respectively.
 
 
 Things learned:
@@ -785,6 +803,14 @@ Things learned:
 8. Execution has Garbage collector and other optimisation such as inlining, copy elusion, inline caching etc.
 9. Fell in love with JS. ❤❤
 
+Mutation Observer is a Web API provided by modern browsers that allows you to asynchronously observe changes to the DOM (Document Object Model) tree.
+
+Mutation observer callbacks are functions that you provide to the Mutation Observer to be executed when changes to the DOM occur. These changes can include modifications to elements, attribute changes, or changes in the structure of the DOM.
+
+Here's a brief overview of how Mutation Observer works:
+
+You create a new Mutation Observer instance and provide it with a callback function to be executed when mutations occur.
+You specify the types of mutations you want to observe using the observe() method. This method takes parameters such as the target element to observe, options for the types of mutations to observe, and a subtree flag indicating whether to observe changes in the target's descendants.
 Basic idea about Mark & Sweep Algo:
 It comprise of 2 phases - 
 1. Mark phase
@@ -794,13 +820,36 @@ It comprise of 2 phases -
 Garbage Collector:
 All objects are marked as 0 initially (at creation) and in mark phase the objects that will be accessible are marked as 1 (reachable) by a DFS graph traversal.
 
-During sweep phase, the objects marked with 0 are removed from heap memory. and also all reachable objects are again initialized with 0 (made unreachable) because the algorithm will run again.
+During sweep phase, the objects marked with 0 are removed from heap memory. and also all reachable objects are again initialized with 0
+ (made unreachable) because the algorithm will run again.
 
 SetTimeout() Trust issue:
 Things learned:
 1. The setTimeout function stores it in the callback queue which is executed only after call stack is empty, even if setTimeout is set to 0ms. 
 2. setTimeout ensures that minimum it will take the time mentioned because it may be paused due to call stack not empty.
 
+
+promise/async:
+const p = new Promise((resolve,reject)=>{
+    setTimeout(()=>reject("fail"),1000)
+});
+p.then((res)=>{
+    console.log(res);
+}).catch((er)=>{
+    console.log(ers.error);
+})
+
+
+async function executePromise() {
+    try {
+        const res = await p;
+        console.log(res);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+executePromise();
 
 Namaste2:
 Issue with calll back
@@ -923,14 +972,43 @@ here x is method of obj1
 
 
 Debouncing&Throttling::
+ Both debouncing and throttling are techniques used to improve performance,but they achieve it in slightly different ways 
+ and are suitable for different scenarios:In scenarios like user input (e.g., typing in a search box) or UI events 
+ (e.g., scrolling), events can occur rapidly, leading to unnecessary processing or resource consumption if every event triggers an action.
+Debouncing and throttling help reduce the number of times a function is called in response to such events, 
+preventing excessive processing and improving performance.
 
-Debouncing delays the execution of your code until the user stops performing a certain action for a specified amount of time.
-Throttling limits the execution of your code to once in every specified time interval.
-Debouncing and throttling are two techniques used in JavaScript to control the rate at which a function is executed, especially in scenarios like handling user
-input or window resize events. These techniques help improve performance and prevent excessive function calls. Here's a brief explanation of each:
-from JS engine's perspective:
+Explanation: In debouncing, the action is only triggered after the user has stopped inputting for a specified period of time.
+Example: If a user is typing in a search box, debouncing would mean that the search action would only be 
+triggered after the user has stopped typing and there is a period of inactivity for a specified duration (e.g., 20 seconds).
+
+Definition: Throttling is like setting a speed limit for how often a function can be called.
+Example: Imagine you have a function that you only want to run once every 2 seconds. Even if you try to call it
+ multiple times quickly, throttling ensures it only runs at most once every 2 seconds.
+
 debouncing: first you finish your action (typing, clicking) & then after x milliseconds I will fetch the required data
 throttling: I am working on something which might take x milliseconds, so don't disturb me for next x milliseconds
+Debouncing
+//html    <input type="text" onkeyup="betterFunctiom()">
+//js
+let count=0;
+const getData = ()=>{
+    console.log("fetch " + count++);
+}
+debounce= function(fn,d){
+    let timer;
+    return function(){
+        let context=this,
+        args=arguments;
+        clearTimeout(timer);
+        timer=setTimeout(() => {
+            getData.apply(context,arguments);
+        }, d);
+    }
+
+}
+
+const betterFunctiom=debounce(getData,3000);
 
 
 Async&Defer:
@@ -1012,6 +1090,8 @@ npx npkill//to kill node modules
 const txt = '{"name":"Bubu","age":27}';
 const obj = JSON.parse(txt);//when receiving data from server in string,we need to convert into object
 
+console.log(obj);//{ name: 'Bubu', age: 27 }
+
 //sending data to server ,need to send as string
 var text= JSON.stringify(obj);
 
@@ -1033,7 +1113,7 @@ const obj1 = {
     $name:'Bubu'
 };
 console.log(obj1.123);//error but
-console.log(obj1["123"]);//bracket notation helps alot
+console.log(obj1["123"]);/digit
 
 
 const vari = 'name';
@@ -1144,14 +1224,256 @@ function b(){
 100
 1
 
+//Deep copy
+// const user = {
+//   name: "Tyler",
+//   age: 27,
+//   greet: () => {
+//     console.log(this);
+//   },
+// };
+//Problem of object copy
+//In object clone or copy,memory addressed gets copy,when we are copying variable it's
+ value gets copied but when we copied object it's memory location gets copied.
+// let obj=user;
+// obj.name="Apu";
+// console.log(user);//Apu
+//  console.log(obj);//Apu
+
+//Solution of above problem is shallow and deep copy in shallow copy only main object gets copied but in deep copy
+ we can copy it's nested object.
+//shallow copy solution1
+// let obj1 = Object.assign({},user);
+// //obj1.name = "Bubu";
+// console.log(user);
+// console.log(obj1);
+//object destructring solution 2
+// let obj2={...user};
+// obj2.name="Hi";
+// console.log(user);
+// console.log(obj2);
+//In this 2 way shallow copy worked only problem is it's not worked for nested  object.
+
+
+//Deep copy
+let obj3={
+   name:"Bubu",
+   address:{
+      city:"BBSR",
+      state:"OD"
+   }
+};
+// let user1={...obj3};
+// user1.address.city="CTC";
+// console.log(obj3.address.city);//ctc but it should be BBSR
+//To overcome this problem we use deep copy
+// let user2= JSON.parse(JSON.stringify(obj3));
+
+// user2.address.city="CTC";
+// console.log(obj3.address.city)
+// console.log(user2.address.city)
+//But in deep copy there is a problem ,it will not work  when object has function or date in it
+let obj4={
+   name:"Bubu",
+   address:{
+      city:"BBSR",
+      state:"OD"
+   },
+   getData:function(){
+      return "I am"
+   }
+};
+let user3= JSON.parse(JSON.stringify(obj4));
+console.log(obj4);
+console.log(user3);//function will not come
+//There is no solution for this in JS
+//One simple solution is for deep copy lodesh
+//lodesh is a JS library install by npn or cdn
+let user4=_.cloneDeep(obj4);
+console.log(obj4);
+console.log(user4);
+
+let arr=[1,2,3,4,5];
+let sol=Math.max(...arr);
+console.log(sol);//5, without spread operator NaN
+
+
+Q.To add a city property to each object in the employeeList array, you can simply
+iterate through the array and add the city property to each object. Here's how you can do it in JavaScript:
+
+
+let employeeList = [
+    { name: 'gopi', age: 20, salary: 20000, epId: 20 },
+    { name: 'hema', age: 20, salary: 2000, epId: 21 }
+];
+
+employeeList.forEach(employee => {
+    employee.city = 'Chennai'; // Add city property with an empty string as default value
+});
+
+console.log(employeeList);//[
+  { name: 'gopi', age: 20, salary: 20000, epId: 20, city: 'Chennai' },
+  { name: 'hema', age: 20, salary: 2000, epId: 21, city: 'Chennai' }
+]
+
+Q.If you want to add different cities to each employee in the employeeList array, you can achieve this by specifying the city for each employee individually. Here's how you can do it:
+let employeeList = [
+    { name: 'gopi', age: 20, salary: 20000, epId: 20 },
+    { name: 'hema', age: 20, salary: 2000, epId: 21 }
+];
+
+// Define an array of cities corresponding to each employee
+let cities = ['Chennai', 'Bangalore'];
+
+// Loop through each employee and assign a city based on the index
+employeeList.forEach((employee, index) => {
+    employee.city = cities[index];
+});
+
+console.log(employeeList);//[
+  { name: 'gopi', age: 20, salary: 20000, epId: 20, city: 'Chennai' },
+  { name: 'hema', age: 20, salary: 2000, epId: 21, city: 'Bangalore' }
+]
+
+
+Q.let test = [
+    { id:1,name: 'gopi'' },
+   { id:2,name: 'bubu'' }, { id:3,name: 'gopi'' },
+]; don't print  duplicate
+
+let test = [
+    { id: 1, name: 'gopi' },
+    { id: 2, name: 'bubu' },
+    { id: 3, name: 'gopi' },
+];
+
+let filteredTest = test.filter((item, index, self) =>
+  index === self.findIndex((t) => (
+    t.name === item.name
+  ))
+);
+
+console.log(filteredTest);
+
+
+Rest Operator (...):
+
+Collects all remaining arguments into an array.
+Only used in function parameter definitions.
+Allows functions to accept an indefinite number of arguments.
+Useful for functions that need to handle variable numbers of arguments.
+function sum(a,b, ...restItem){
+    console.log(restItem);[ 3, 4, 6, 7 ]
+
+}
+sum(1,2,3,4,6,7);
+Spread Operator (...):
+
+Spreads elements of an iterable (like an array) into individual elements.
+Used in function calls and array literals.
+Allows you to pass elements of an array as arguments to a function or insert elements of an array into another array.
+Can be used for object literals to merge objects together.
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const mergedArray = [...arr1, ...arr2];
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+https://youtu.be/ROqYo6GW0g4?si=zjmsSGn4o5QCHIRJ 
+
+
+//callback
+
+function x(b){
+    return b;
+}
+function y(){
+    console.log("yhhfghdf");
+}
+x(y());
+/orfunction process(callback) {
+  setTimeout(function() {
+    callback();
+  }, 1000);
+}
+
+function callbackFunction() {
+  console.log("Callback function executed");
+}
+
+process(callbackFunction);
+
+
+//function test() {
+console.log(a);
+console.log(foo());
+var a = 1;
+function foo() {
+return 2;
+}
+}
+test();//undefined and 2
+
+Q.Write a code to hide/show the div without calling any function from TS file.
+ts:import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'ecomm-project';
+  isVisible: boolean = false;
+
+ 
+}
+//html<div>
+  <button (click)="isVisible = !isVisible">Toggle Div</button>
+</div>
+
+<div *ngIf="isVisible">
+  <p>This div will be shown/hidden based on button click.</p>
+</div>
+
+</div>
+
+//design a circle using html css in center
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Circle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="circle">Circle</div>
+</body>
+</html>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #3498db; /* you can change the color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
 
 
 
-
-
-
-
-
+			
 
 
 
