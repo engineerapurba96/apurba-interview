@@ -35,5 +35,3 @@ if (isPrime(number)) {
 } else {
     console.log(number + " is not a prime number.");
 }
-
-//or

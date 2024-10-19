@@ -17,7 +17,6 @@ function findVowels(str) {
             foundVowels.push(char);
         }
     }
-
     return foundVowels;
 }
 

@@ -12,8 +12,8 @@ function sortArrayAscending(arr) {
     return arr;
 }
 
-const arr = [3, 1, 7, 2, 5];
-const sortedArray = sortArrayAscending(arr);
+const arr1 = [3, 1, 7, 2, 5];
+const sortedArray = sortArrayAscending(arr1);
 
 console.log(sortedArray); // Output: [1, 2, 3, 5, 7]
-console.log(arr); // Output: [1, 2, 3, 5, 7] (Original array is sorted)
+console.log(arr1); // Output: [1, 2, 3, 5, 7] (Original array is sorted)

@@ -31,4 +31,4 @@ const arra = [1, 2, 3];
 const array = [1, 2, 8];
 
 
-console.log(arraysAreEqual(arra, array)); // Output: true
+console.log(arraysAreEqual(arra, array)); // Output: false
