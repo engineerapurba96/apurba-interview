@@ -116,7 +116,7 @@ function printTriangle(rows) {
 printTriangle(5);
 
 //reverse triangle
-// *********
+//*********
 // *******
 //  *****
 //   ***

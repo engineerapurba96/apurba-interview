@@ -48,3 +48,37 @@ if(res === undefined){
 }else{
     console.log("Factorial of number is :", res);
 }
+
+//for loop
+function calculateFactorial(inputNumber) {
+
+    if(inputNumber < 0) {
+        throw new Error("inputNumber should be greater than or equal to zero");
+    }
+    let result = 1;
+    for(let i = 1; i <= inputNumber; i++) {
+        result *= i
+    }
+    return result;
+}
+console.log(calculateFactorial(4));
+console.log("3!", calculateFactorial(3));
+console.log("10!", calculateFactorial(10));
+console.log("0!", calculateFactorial(0));
+console.log("1!", calculateFactorial(1));
+
+//or
+function calculateFactorial(inputNumber) {
+
+    if(inputNumber < 0) {
+       return undefined;
+    }else if(inputNumber === 0 || inputNumber ===1) {
+      return 1;
+    }
+    let result = 1;
+    for(let i = 2; i <= inputNumber; i++) {
+        result *= i
+    }
+    return result;
+}
+console.log(calculateFactorial(-3));
