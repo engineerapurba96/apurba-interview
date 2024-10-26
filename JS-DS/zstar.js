@@ -143,3 +143,297 @@ function printReverseTriangle(rows) {
 printReverseTriangle(5);
 
     
+
+// right-angled triangle pattern with a constant number of stars
+function printStarPattern(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let star = "";
+        // Add spaces
+        for (let j = 1; j <= i; j++) {
+            star += " ";
+        }
+        // Add stars
+        for (let k = 1; k <= rows; k++) {
+            star += "*";
+        }
+        console.log(star);
+    }
+}
+
+// Call the function with the number of rows
+printStarPattern(5);
+// *****  
+//  ***** 
+//   *****  
+//    *****  
+//     *****  
+
+//reverse
+    //      *****
+    //     *****
+    //    *****
+    //   *****
+    //  *****
+function printStarPattern(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let star = "";
+        for (let j = rows; j >= i; j--) {
+            star += " ";
+        }
+        for (let k = 1; k <= rows; k++) {
+            star += "*";
+        }
+        console.log(star);
+    }
+}
+let userInput = parseInt(prompt("Enter the number of rows: "));
+printStarPattern(userInput);
+
+
+//
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+        for (let j = rows; j >=i ; j--) {
+            line += ' ';
+        }
+        for (let k = 1; k <= i; k++) {
+            line += '*';
+        }
+
+        console.log(line);
+    }
+}
+printTriangle(8);
+
+//         *
+//        **
+//       ***
+//      ****
+//     *****
+//    ******
+//   *******
+//  ********
+
+
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+        for (let j = 1; j <=i ; j++) {
+            line += ' ';
+        }
+        for (let k = rows; k >= i; k--) {
+            line += '*';
+        }
+
+        console.log(line);
+    }
+}
+printTriangle(5);
+//  *****
+//   ****
+//    ***
+//     **
+//      *
+
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+
+        // Add spaces before stars
+        for (let j = rows; j >=i ; j--) {
+            line += ' ';
+        }
+
+        // Add stars with space
+        for (let k = 1; k <= i; k++) {
+            line += '* ';
+        }
+
+        console.log(line);
+    }
+}
+
+// Call the function with the desired number of rows
+printTriangle(5);
+//      * 
+//     * * 
+//    * * * 
+//   * * * * 
+//  * * * * * 
+
+
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+
+        // Add spaces before stars
+        for (let j = 1; j <=i ; j++) {
+            line += ' ';
+        }
+
+        // Add stars with space
+        for (let k = rows; k >= i; k--) {
+            line += '* ';
+        }
+
+        console.log(line);
+    }
+}
+
+// Call the function with the desired number of rows
+printTriangle(5);
+//  * * * * * 
+//   * * * * 
+//    * * * 
+//     * * 
+//      * 
+
+
+
+
+// *
+// **
+// ***
+// ****
+// *****
+// ****
+// ***
+// **
+// *
+
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+
+        // Add spaces before stars
+        for (let j = 1; j <=i ; j++) {
+            line += '*';
+        }
+
+        console.log(line);
+    }
+
+ for (let i = 1; i <= rows-1; i++) {
+        let line = '';
+
+        // Add spaces before stars
+        for (let j = rows-1; j >=i ; j--) {
+            line += '*';
+        }
+
+        console.log(line);
+    }
+}
+
+
+// Call the function with the desired number of rows
+printTriangle(5);
+
+
+//      *
+//     **
+//    ***
+//   ****
+//  *****
+//   ****
+//    ***
+//     **
+//      *
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+        for(let j=rows;j>=i;j--){
+            line+= " ";
+        
+        }
+        for (let k = 1; k <=i ; k++) {
+            line += '*';
+        }
+
+        console.log(line);
+    }
+    
+     for (let i = 1; i <= rows-1; i++) {
+        let line = '';
+        for(let j=1;j<=i+1;j++){//follow i+1 for extra space
+            line+= " ";
+        
+        }
+        for (let k = rows-1; k >=i ; k--) {
+            line += '*';
+        }
+
+        console.log(line);
+    }
+
+}
+
+printTriangle(5);
+
+
+//  * * * * * 
+//   * * * * 
+//    * * * 
+//     * * 
+//      * 
+//      * 
+//     * * 
+//    * * * 
+//   * * * * 
+//  * * * * * 
+
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+
+        for (let j = 1; j <= i; j++) {
+            line += ' ';
+        }
+
+        for (let k = rows; k >= i; k--) {
+            line += '* ';
+        }
+
+        console.log(line);
+    }
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+
+        for (let j = rows; j >= i; j--) {
+            line += ' ';
+        }
+
+        for (let k = 1; k <= i; k++) {
+            line += '* ';
+        }
+
+        console.log(line);
+    }
+}
+
+printTriangle(5);
+
+// *******
+// *     *
+// *     *
+// *     *
+// *     *
+// *     *
+// *******
+
+function printTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+     let line = '';
+     for (let j = 1; j<=rows ; j++) {
+         if(i ===1 || i=== rows || j=== 1 || j=== rows){
+              line += '*';
+         } else{
+             line+= " ";
+         }
+     }
+
+     console.log(line);
+ }
+}
+printTriangle(7);
