@@ -1152,6 +1152,20 @@ setTimeout(function() {
 
 })();
 
+//e of closure in var o print 0 to 11
+function x() {
+    for (var i = 0; i <= 10; i++) {
+        (function(i) {
+            setTimeout(function() {
+                console.log(i);
+            }, 1000);
+        })(i); // Pass 'i' to the IIFE
+    }
+}
+
+x();
+
+
 
 
 //splitting
@@ -1470,6 +1484,84 @@ body {
     font-size: 24px;
     font-weight: bold;
 }
+
+
+//call
+function greet(city,age) {
+    console.log(`${this.name} , ${city}, ${age}`);
+}
+
+const person = { name: "Alice" };
+
+// Using call() to set 'this' to 'person'
+greet.call(person, "Hello",6); // Output: "Hello, Alice!"
+
+//or
+function greet(city) {
+    console.log(this.name + " " + city);
+}
+
+const person = { name: "Alice" };
+
+// Set 'this' to 'person' and pass "New York" as the city
+greet.call(person, "New York"); // Output: "Alice New York"
+
+//apply
+function greet(city,age) {
+    console.log(`${this.name} , ${city}, ${age}`);
+}
+
+const person = { name: "Alice" };
+
+// Using call() to set 'this' to 'person'
+greet.apply(person, ["Hello",6]); // Output: "Hello, Alice!"
+
+
+//TogetIndividual:
+let x =['LDYIA'];
+console.log([...x[0]]);//[ 'L', 'D', 'Y', 'I', 'A' ]
+
+//Multiple
+let x = ['LDYIA', 'BUBU'];
+let result = x.map(str => [...str]);
+console.log(result);//[ [ 'L', 'D', 'Y', 'I', 'A' ], [ 'B', 'U', 'B', 'U' ] ]
+
+
+
+
+//
+console.log(Number.isNaN(NaN)); // true
+console.log(isNaN(NaN));         // true
+console.log(Number.isNaN(5));    // false
+console.log(isNaN(5));            // false
+console.log(Number.isNaN('NaN')); // false (string is not NaN)
+console.log(isNaN('NaN'));         // true (string is coerced to NaN)
+
+
+//for...in
+const person = {
+    name: 'Alice',
+    age: 25,
+    city: 'New York'
+};
+
+for (let key in person) {
+    console.log(key + ': ' + person[key]);
+}
+//output
+name: Alice
+age: 25
+city: New York
+
+
+//for ..of
+const colors = ['red', 'green', 'blue'];
+
+for (const color of colors) {
+    console.log(color);
+}
+//output
+red green blue
 
 
 
