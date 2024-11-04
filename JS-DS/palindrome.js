@@ -36,3 +36,19 @@ console.log(isNumberPalindrome(123)); // false
 console.log(isNumberPalindrome(12321)); // true
 console.log(isNumberPalindrome(10)); // false
 
+
+//using loop
+
+function isPalindrome(inputString) {
+    // Remove spaces and make the string lowercase for case-insensitive comparison
+    inputString = inputString.replace(/\s+/g, '').toLowerCase();
+
+    for (let i = 0; i < inputString.length / 2; i++) {
+        if (inputString[i] !== inputString[inputString.length - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(isPalindrome("MaD AM")); // Output: true

@@ -3,126 +3,11 @@ Follow
 1. https://www.interviewbit.com/javascript-interview-questions/#output-of-following-code-2 
 2. https://www.interviewbit.com/javascript-mcq/ 
 
-1.Write the code given If two strings are anagrams of one another, then return true.
-solutions:
-function areAnagram(str1,str2)
-    {
-        let n1 = str1.length;
-        let n2 = str2.length;
-        if (n1 != n2)
-            return false;
-        str1.sort();
-        str2.sort()
-        for (let i = 0; i < n1; i++)
-            if (str1[i] != str2[i])
-                return false;
-   
-        return true;
-    }
-    let str1=['g', 'r', 'a', 'm' ];
-    let str2=['a', 'r', 'm' ,'g'];
-     
-    // Function Call
-        if (areAnagram(str1, str2))
-            document.write("The two strings are"
-                               + " anagram of each other<br>");
-        else
-            document.write("The two strings are not"
-                               + " anagram of each other<br>");
 
-
-2.Write the code to find the vowels
-Solutios:
-const findVowels = str => {
-  let count = 0
-  const vowels = ['a', 'e', 'i', 'o', 'u']
-  for(let char of str.toLowerCase()) {
-    if(vowels.includes(char)) {
-      count++
-    }
-  }
-  return count
-}
-or
-function isVowel(ch) {
-        ch = ch.toUpperCase();
-        return ch == "A" || ch == "E" || ch == "I" || ch == "O" || ch == "U";
-      }
-  
-      // Returns count of vowels in str
-      function countVowels(str)
-      {
-        var count = 0;
-        for (var i = 0; i < str.length; i++)
-          if (isVowel(str[i]))
-            
-            // Check for vowel
-            ++count;
-        return count;
-      }
-  
-      // Main Calling Function
-  
-      // string object
-      var str = "abc de";
-  
-      // Total numbers of Vowel
-      document.write(countVowels(str));
-      document.write("<br>");
-	  
-	  3. In JavaScript, how do you turn an Object into an Array []?
-	  solutions:
-	  
-
-let obj = { id: "1", name: "user22", age: "26", work: "programmer" };
-
-//Method 1: Convert the keys to Array using - Object.keys()
-console.log(Object.keys(obj));
-// ["id", "name", "age", "work"]
-
-// Method 2 Converts the Values to Array using - Object.values()
-console.log(Object.values(obj));
-// ["1", "user22r", "26", "programmer"]
-
-// Method 3 Converts both keys and values using - Object.entries()
-console.log(Object.entries(obj));
-//[["id", "1"],["name", "user22"],["age", "26"],["work", “programmer"]]
-
-4. What is the output of the following code?
-const b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-for (let i = 0; i < 10; i++) {
-  setTimeout(() => console.log(b[i]), 1000);
-}
-
-for (var i = 0; i < 10; i++) {
-  setTimeout(() => console.log(b[i]), 1000);
-}
-solutions:
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-undefined
-undefined
-undefined
-undefined
-undefined
-undefined
-undefined
-undefined
-undefined
-undefined
 5.A BigInt value, also sometimes just called a BigInt, is a bigint primitive, created by appending n to the end of an integer literal, 
 or by calling the BigInt() function (without the new operator) and giving it an integer value or string value.
 var a = BigInt("567")+BigInt("3")
-console.log(a);
+console.log(a);//570n
 typeof 1n === "bigint"; // true
 typeof BigInt("1") === "bigint"; // true
 
@@ -140,6 +25,7 @@ The following syntax with the new operator will throw a TypeError:
 
 
 const sym = new Symbol(); // TypeError
+
 6.// Hoisting takes place in the local scope as well
 function doSomething(){
   x = 33;
@@ -164,7 +50,7 @@ var x;
 console.log(x); // Outputs "undefined" since the initialization of "x" is not hoisted
 x = 23;
 
-Note - To avoid hoisting, you can run javascript in strict mode by using “use strict” on top of the code:
+Note - To avoid hoisting, you can run JavaScript in strict mode by using “use strict” on top of the code:
 7."use strict";
 x = 23; 
 console.log(x);// Gives an error since 'x' is not declared
@@ -190,30 +76,6 @@ var y = "2";
 (x == y)  // Returns true since the value of both x and y is the same
 (x === y) // Returns false since the typeof x is "number" and typeof y is "string"
 
-9.async vs defer in script tag in JavaScript? (https://codedamn.com/news/javascript/async-and-defer-in-script-tag)
-Ans:
-When it comes to loading external JavaScript files on your website, should you use async or defer? Both methods have their own advantages and disadvantages,
-and there is no definitive answer. Ultimately, it depends on your specific needs. This blog post will explain what async and defer actually is and explore
- the differences between async and defer, so you can make an informed decision about which method is best for your use case.
- 
-Async in script tag in JavaScript is a way to load scripts asynchronously. That means, if a script is async, it will be loaded independently of other scripts on the page, and will not block the page from loading.
-
-If you have a page with several external scripts, loading them all asynchronously can speed up the page load time, because the browser can download and execute them in parallel.
-
-To use async, simply add the async attribute to your script tag:
-
-<script async src="script.js"></script>
-
-By using the defer attribute in HTML, the browser will load the script only after parsing (loading) the page. This can be helpful if you have a script that is dependent on other scripts, or if you want to improve the loading time of your page by loading scripts after the initial page load.
-
-To use defer, simply add the defer attribute to your script tag:
-
-<script defer src="script.js"></script>
-The async and defer attributes both allow the browser to continue parsing the HTML document while JavaScript files are being downloaded, but they differ in when those files are 
-executed.Async downloads and executes JavaScript as soon as it’s available, while defer attribute waits until the HTML document has been parsed before downloading and executing any external scripts.
-
-In most cases, it doesn’t matter which attribute you use – both will improve performance by allowing the browser to continue parsing while waiting for JavaScript to download.
- However, there are some situations where one attribute may be preferable to the other.
 
 10.Dynamically typed?
 In dynamic-typed languages, we don’t need to define the type of a variable as an interpreter at run-time will handle it.
@@ -780,6 +642,7 @@ Smaller bundle sizes as the Angular compiler is not needed in the final bundle.
 Detects template errors at build time.
 Drawbacks:
 Longer build times.
+
 JIT (Just-In-Time) Compilation:
 
 When: JIT compilation is performed at runtime in the client's browser.
@@ -949,6 +812,19 @@ The main topic of this video is Promise APIs.
 
 55:57 The speaker is requesting viewers to share and appreciate the video.
 
+//chaning
+
+let dat = fetch('https://jsonplaceholder.typicode.com/posts');
+
+dat.then((res) => {
+    return res.json(); // Convert response to JSON
+}).then((data) => {
+    console.log(data); // Log the actual data
+}).catch((error) => {
+    console.error('Error fetching data:', error); // Log any error
+});
+
+
 
 This keyword:
 If you are inside function,the value depend on strict and non strict mode.
@@ -1075,6 +951,7 @@ Event delegation is a programming pattern in web development where instead of at
 common ancestor. This single handler then monitors for events that bubble up from the descendant elements. This approach is particularly useful when you have a large number of similar elements that need the same type of event handling.
 
 //By rethinking UI
+
 const first = "JavaScript";
 const middle = "Frontend";
 const last = "developer";
@@ -1185,11 +1062,13 @@ const out = arr.filter(Boolean);//To remove falsy value we used filter with bool
 console.log(out);
 
 console.log("b"+"a"+ +"a"+"a");//baNaNa
-console.log(Number.MIN_VALUE>0);//minmum value is not 0 or not -ve,it's smallest positive number
+console.log(Number.MIN_VALUE>0);//true ,minmum value is not 0 or not -ve,it's smallest positive number
 console.log(Math.min());//infinity
 console.log(Math.max())//-infinity
 
 console.log(1+2+"Hello"+[1,2,3]);//3Hello1,2,3
+"3Hello" + [1,2,3]: Finally, we have a string ("3Hello") and an array ([1,2,3]). When a string is added to an array, JavaScript converts the array to a string by joining the array elements with commas. So [1,2,3] becomes "1,2,3", and the result is "3Hello1,2,3".
+
 console.log([1,2]+[3,4]);//1,23,4
 
 
@@ -1209,7 +1088,27 @@ console.log(emptyArray===false)//false,type of empty array is object
 target="_blank" rel="noopener">bubu</a></body>//rel=“noopener noreferrer” are actually two separate tags with different uses. Noreferrer stops linked website owners 
 from seeing the origin of traffic you send to their website, while the noopener tab plays a crucial role in protecting your site from reverse tabnapping.
 
+noopener
+Imagine you open a link in a new tab. Without noopener:
 
+The new tab can "see" and "talk to" the tab you came from (your original tab).
+This is a security risk because the new tab could potentially do something bad to the original tab.
+With noopener:
+
+The new tab is blocked from interacting with your original tab.
+This keeps your original tab safe.
+noreferrer
+When you click a link, the new website can often see where you came from (your original page’s URL). This is called the referrer.
+
+With noreferrer:
+
+The new website won’t see your original page’s URL.
+This keeps your browsing private.
+So, noopener noreferrer means:
+
+The new tab can’t mess with your original tab.
+The new website can’t see where you came from.
+It’s a way to make links safer and more private.
 
 //onpaste="return  false " or ondrop="return false "//used to avoid copy paste
  
@@ -1234,7 +1133,8 @@ function b(){
     var x = 100;
     console.log(x);
 }
-//output10
+//output
+10
 100
 1
 
@@ -1349,11 +1249,8 @@ console.log(employeeList);//[
   { name: 'hema', age: 20, salary: 2000, epId: 21, city: 'Bangalore' }
 ]
 
+//remove duplicate
 
-Q.let test = [
-    { id:1,name: 'gopi'' },
-   { id:2,name: 'bubu'' }, { id:3,name: 'gopi'' },
-]; don't print  duplicate
 
 let test = [
     { id: 1, name: 'gopi' },
@@ -1368,6 +1265,24 @@ let filteredTest = test.filter((item, index, self) =>
 );
 
 console.log(filteredTest);
+
+//or
+
+let test = [
+    { id: 1, name: 'gopi' },
+    { id: 2, name: 'bubu' },
+    { id: 3, name: 'gopi' },
+];
+
+let filteredTest = test.filter(function(item, index, self) {
+  return index === self.findIndex(function(t) {
+    return t.name === item.name;
+  });
+});
+
+console.log(filteredTest);
+
+
 
 
 Rest Operator (...):
@@ -1441,7 +1356,8 @@ export class AppComponent {
 
  
 }
-//html<div>
+//html
+<div>
   <button (click)="isVisible = !isVisible">Toggle Div</button>
 </div>
 
@@ -1530,12 +1446,31 @@ console.log(result);//[ [ 'L', 'D', 'Y', 'I', 'A' ], [ 'B', 'U', 'B', 'U' ] ]
 
 
 //
-console.log(Number.isNaN(NaN)); // true
-console.log(isNaN(NaN));         // true
-console.log(Number.isNaN(5));    // false
-console.log(isNaN(5));            // false
-console.log(Number.isNaN('NaN')); // false (string is not NaN)
-console.log(isNaN('NaN'));         // true (string is coerced to NaN)
+ Number.isNaN()
+Purpose: This method is used to determine whether the provided value is exactly NaN.
+Type Coercion: It does not perform type coercion. It checks the value strictly against NaN.
+Behavior:
+Returns true only if the value is NaN.
+Returns false for any other value, including numbers, strings, objects, etc.
+console.log(Number.isNaN(NaN));       // true - because the input is exactly NaN
+console.log(Number.isNaN(5));         // false - 5 is a valid number, not NaN
+console.log(Number.isNaN('NaN'));     // false - 'NaN' is a string, not NaN
+console.log(Number.isNaN(undefined));  // false - undefined is not NaN
+console.log(Number.isNaN(null));      // false - null is not NaN
+
+2. isNaN()
+Purpose: This function determines whether a value is NaN or can be coerced to NaN.
+Type Coercion: It does perform type coercion. It converts the input to a number before checking if it is NaN.
+Behavior:
+Returns true if the value is NaN or if the value cannot be converted to a number (and hence results in NaN).
+Returns false for valid numeric values.
+console.log(isNaN(NaN));              // true - because the input is NaN
+console.log(isNaN(5));                 // false - 5 is a valid number
+console.log(isNaN('NaN'));             // true - 'NaN' coerces to NaN
+console.log(isNaN('hello'));           // true - 'hello' coerces to NaN
+console.log(isNaN(undefined));         // true - undefined coerces to NaN
+console.log(isNaN(null));              // false - null coerces to 0, which is a valid number
+
 
 
 //for...in
@@ -1562,6 +1497,54 @@ for (const color of colors) {
 }
 //output
 red green blue
+
+//output
+let person = {name:"Bubu"};
+let mem = [person];
+person = null;
+console.log(mem);
+console.log(person);
+//output
+[ { name: 'Bubu' } ]
+null
+//reason:
+
+In JavaScript, when you assign an object to a variable, that variable holds a reference to the object, not the object itself. If you create a second variable or container (like an array) and assign it the first variable, both now share a reference to the same object in memory.
+
+When you later set the first variable to null, you’re only removing that particular reference, not the object itself. The object remains in memory as long as there’s at least one reference pointing to it—in this case, from the array.
+
+Therefore, even if you set one reference to null, any other references to the object will keep it accessible and prevent it from being removed from memory.
+
+
+//output
+let data = "Hi, i am Apurba,fjfhhj";
+
+let res = data.substring(0,5);
+console.log(res);Hi, i
+
+//difference
+1. while substring treats negative indices as 0.
+console.log(data.substring(-3, 5)); // Output: "Hi, i" 
+But, slice can accept negative indices to count from the end of the string,
+console.log(data.slice(-3)); // Output: "fhj" (last 3 characters)
+
+
+2. substring swaps the indices and still returns a substring.
+console.log(data.substring(5, 0)); // Output: "Hi, i"
+but
+When the start index is greater than the end index, slice returns an empty string, 
+console.log(data.slice(5, 0)); // Output: ""
+
+
+//out
+(()=>{
+    let x = y =9;
+})();
+console.log(y);//9 it's not declare var,let and const so it's global
+console.log(typeof y);//number
+console.log(x);//error
+
+
 
 
 

@@ -29,10 +29,6 @@ function calculateSumOfDigits2(inputNumber) {
         let lastDigit = number % 10;
         number = Math.floor(number / 10);
         sumOfDigits = sumOfDigits + lastDigit;
-        // 456
-        // 45
-        // 4
-        // 0
     }
     
     return sumOfDigits;

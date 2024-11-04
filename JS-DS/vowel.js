@@ -41,9 +41,9 @@ function findVowels(str) {
 }
 
 // Example: Find vowels in a string
-const inputString = prompt("Enter String :");
-const vowelsFound = findVowels(inputString);
-console.log("Vowels found in the string:", vowelsFound);
+const inputStrin = prompt("Enter String :");
+const vowelsFoun = findVowels(inputStrin);
+console.log("Vowels found in the string:", vowelsFoun);
 
 //for both
 function findVowels(str) {
@@ -62,6 +62,39 @@ function findVowels(str) {
 }
 
 // Example: Find vowels in a string
-const inputString = prompt("Enter String :");
-const vowelsFound = findVowels(inputString);
+const inputString1 = prompt("Enter String :");
+const vowelsFound1 = findVowels(inputString1);
 console.log("Vowels found in the string:", vowelsFound);
+
+
+//vowel and consonant
+function calcVowCons(str) {
+    str = str.toLowerCase().replace(/\s+/g, ''); 
+    const vows = "aeiou";
+    let vowCount = 0;
+    let consCount = 0;
+    const vowList = [];
+    const consList = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if (vows.includes(str[i])) {
+            vowCount++;
+            vowList.push(str[i]);
+        } else if (/^[a-z]$/.test(str[i])) {
+            consCount++;
+            consList.push(str[i]);
+        } else {
+            console.log(str[i], "is neither a vowel nor a consonant");
+        }
+    }
+
+    return { 
+        vowCount, 
+        consCount,
+        vowels: vowList,
+        consonants: consList
+    };
+}
+
+console.log(calcVowCons("Hello    World"));
+
