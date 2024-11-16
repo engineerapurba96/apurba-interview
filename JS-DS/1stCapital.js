@@ -1,7 +1,9 @@
 const str = "hello";
 const newstr = str.charAt(0).toUpperCase() + str.slice(1);
 console.log(newstr);//Hello
+
 //or
+
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }

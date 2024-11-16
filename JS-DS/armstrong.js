@@ -20,7 +20,10 @@ console.log(isArmstrongNumber(153)); // true
 console.log(isArmstrongNumber(371)); // true
 console.log(isArmstrongNumber(9474)); // true
 console.log(isArmstrongNumber(123)); // false
+
+
 //or
+
 var number = prompt("Please enter a number");
 var temp = number;
 var lengthOfDigit = number.toString().length;
@@ -30,6 +33,8 @@ while (temp > 0) {
     var digit = temp % 10;
     sum += digit ** lengthOfDigit;
     temp = parseInt(temp / 10);
+    //temp = Math.floor(temp / 10);
+
 }
 
 if (sum == number) {

@@ -26,6 +26,11 @@ console.log(duplicateValues); // Output: [2, 3]
 //   const myArray = [1, 2, 3, 4, 2, 5, 6, 3];
 //   const duplicateValues = findDuplicates(myArray);
 //   console.log(duplicateValues); // Output: [2, 3]
+let arrd = [1, 6, 1, 5, 5, 1, 5];
+let dup = [...new Set(arrd.filter((item, index) => arrd.indexOf(item) !== index))];
+console.log(dup); // [1, 5]
+
+
 const arr = [1, 5, 1, 5, 7];
 const duplicates = arr.filter((item, index) => {
   return arr.indexOf(item) !== index;
