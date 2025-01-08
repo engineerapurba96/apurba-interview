@@ -18,7 +18,6 @@ function areAnagram(str1, str2) {
 const res = areAnagram("listen", "silent");
 console.log(res);
 
-
 //OR
 function breAnagram(str1, str2) {
   // Convert both strings to lowercase before splitting, sorting, and joining
@@ -45,7 +44,7 @@ function areAnagram(str1, str2) {
   let n1 = str1.length;
   let n2 = str2.length;
   if (n1 !== n2) {
-      return false;
+    return false;
   }
 
   // Sort both arrays
@@ -54,17 +53,17 @@ function areAnagram(str1, str2) {
 
   // Compare sorted arrays
   for (let i = 0; i < n1; i++) {
-      if (str1[i] !== str2[i]) {
-          return false;
-      }
+    if (str1[i] !== str2[i]) {
+      return false;
+    }
   }
 
   return true;
 }
 
 // Input arrays
-let str1 = ['g', 'r', 'a', 'm'];
-let str2 = ['a', 'r', 'm', 'g'];
+let str1 = ["g", "r", "a", "m"];
+let str2 = ["a", "r", "m", "g"];
 
 // Function Call
 if (areAnagram(str1, str2)) {

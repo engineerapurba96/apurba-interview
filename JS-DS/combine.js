@@ -19,7 +19,7 @@ console.log(combineString(a, b)); // Output: "a1b2c3d4efg"
 function combineString(str1, str2) {
     let res = "";
     const maxLength = Math.max(str1.length, str2.length);
-    
+
     for (let i = 0; i < maxLength; i++) {
         if (i < str1.length) {
             res += str1[i];
@@ -28,7 +28,7 @@ function combineString(str1, str2) {
             res += str2[i];
         }
     }
-    
+
     return res;
 }
 

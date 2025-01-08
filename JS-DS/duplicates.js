@@ -15,7 +15,6 @@ const myArray = [1, 2, 3, 4, 2, 5, 6, 3];
 const duplicateValues = findDuplicates(myArray);
 console.log(duplicateValues); // Output: [2, 3]
 
-
 //or
 
 // function findDuplicates(arr) {
@@ -27,25 +26,25 @@ console.log(duplicateValues); // Output: [2, 3]
 //   const duplicateValues = findDuplicates(myArray);
 //   console.log(duplicateValues); // Output: [2, 3]
 let arrd = [1, 6, 1, 5, 5, 1, 5];
-let dup = [...new Set(arrd.filter((item, index) => arrd.indexOf(item) !== index))];
+let dup = [
+  ...new Set(arrd.filter((item, index) => arrd.indexOf(item) !== index)),
+];
 console.log(dup); // [1, 5]
-
 
 const arr = [1, 5, 1, 5, 7];
 const duplicates = arr.filter((item, index) => {
   return arr.indexOf(item) !== index;
 });
-console.log(duplicates);//[1,5]
+console.log(duplicates); //[1,5]
 // Example Breakdown
 // Let’s see how it works for each element in the array [1, 5, 1, 5, 7]:
 
 // Element 1 (Index 0):
-
 // arr.indexOf(1) returns 0 (first occurrence index).
 // Current index is 0.
 // Since 0 === 0, this condition is false, meaning 1 is not considered a duplicate here.
-// Element 5 (Index 1):
 
+// Element 5 (Index 1):
 // arr.indexOf(5) returns 1 (first occurrence index).
 // Current index is 1.
 // Since 1 === 1, this condition is false, meaning 5 is not considered a duplicate here.
@@ -74,7 +73,6 @@ const arr3 = [1, 2, 3, 4, 2, 5, 6, 3];
 const uniqueArrays = [...new Set(arr3)];
 console.log(uniqueArrays); // Output: [1, 2, 3, 4, 5, 6]
 
-
 //for string remove duplicates
 // Step 1: Declare the string
 let str1 = "My name is Apurba . Apurba is a cool name";
@@ -93,7 +91,7 @@ let uniqueWordsSet = new Set(wordsArray);
 let uniqueWordsArray = [...uniqueWordsSet];
 
 // Step 5: Join the unique words back into a single string
-let result1 = uniqueWordsArray.join(' ');
+let result1 = uniqueWordsArray.join(" ");
 
 // Step 6: Output the result
 console.log(result1); // Output: "My name is Apurba . a cool"
@@ -109,16 +107,14 @@ let uniqueWords = [];
 
 // Step 3: Loop through each word in the words array
 for (let i = 0; i < words.length; i++) {
-    // Step 4: Check if the word is not already in the uniqueWords array
-    if (!uniqueWords.includes(words[i])) {
-        // If not, add it to the uniqueWords array
-        uniqueWords.push(words[i]);
-    }
+  // Step 4: Check if the word is not already in the uniqueWords array
+  if (!uniqueWords.includes(words[i])) {
+    // If not, add it to the uniqueWords array
+    uniqueWords.push(words[i]);
+  }
 }
 
 // Step 5: Join the unique words back into a string
-let result = uniqueWords.join(' ');
+let result = uniqueWords.join(" ");
 
 console.log(result); // Output: "My name is Apurba . cool"
-
-
