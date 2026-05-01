@@ -1,14 +1,24 @@
 function printStars(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let stars = '';
-        for (let j = 1; j <= i; j++) {
-            stars += '*';
-        }
-        console.log(stars);
+  for (let i = 1; i <= rows; i++) {
+    let stars = "";
+    for (let j = 1; j <= i; j++) {
+      stars += "*";
     }
+    console.log(stars);
+  }
 }
 
 printStars(5);
+
+// or
+const printStar = (row) => {
+  for (let i = 1; i <= row; i++) {
+    console.log("*".repeat(i));
+  }
+};
+
+printStar(5);
+
 //output
 // *
 // **
@@ -66,20 +76,26 @@ printStars(5);
 // Final Output
 // The result is a right-angled triangle of stars:
 
-
-
 //revesre triangle
 function printReverseStars(rows) {
-    for (let i = rows; i >= 1; i--) { // Start from 'rows' and decrease to 1
-        let stars = '';
-        for (let j = 1; j <= i; j++) {
-            stars += '*';
-        }
-        console.log(stars);
+  for (let i = rows; i >= 1; i--) {
+    // Start from 'rows' and decrease to 1
+    let stars = "";
+    for (let j = 1; j <= i; j++) {
+      stars += "*";
     }
+    console.log(stars);
+  }
 }
+printReverseStars(5);
 
-// Call the function with the desired number of rows
+//or
+const printReverseStars = (rows) => {
+  for (let i = rows; i >= 1; i--) {
+    console.log("*".repeat(i));
+  }
+};
+
 printReverseStars(5);
 
 // *****
@@ -95,25 +111,31 @@ printReverseStars(5);
 //   *******
 //  *********
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
 
-        // Add spaces before stars
-        for (let j = 1; j <= rows - i; j++) {
-            line += ' ';
-        }
-
-        // Add stars
-        for (let k = 1; k <= 2 * i - 1; k++) {
-            line += '*';
-        }
-
-        console.log(line);
+    // Add spaces before stars
+    for (let j = 1; j <= rows - i; j++) {
+      line += " ";
     }
-}
 
-// Call the function with the desired number of rows
+    // Add stars
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      line += "*";
+    }
+
+    console.log(line);
+  }
+}
 printTriangle(5);
+//or
+const printTriangle = (rows) => {
+  for (let i = 1; i <= rows; i++) {
+    console.log(" ".repeat(rows - i) + "*".repeat(2 * i - 1));
+  }
+};
+
+printTriangle(6);
 
 //reverse triangle
 //*********
@@ -122,87 +144,97 @@ printTriangle(5);
 //   ***
 //    *
 function printReverseTriangle(rows) {
-    for (let i = rows; i >= 1; i--) {  // Start from the number of rows and decrease
-        let line = '';
+  for (let i = rows; i >= 1; i--) {
+    // Start from the number of rows and decrease
+    let line = "";
 
-        // Add spaces before stars
-        for (let j = 1; j <= rows - i; j++) {
-            line += ' ';
-        }
-
-        // Add stars
-        for (let k = 1; k <= 2 * i - 1; k++) {
-            line += '*';
-        }
-
-        console.log(line);
+    // Add spaces before stars
+    for (let j = 1; j <= rows - i; j++) {
+      line += " ";
     }
+
+    // Add stars
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      line += "*";
+    }
+
+    console.log(line);
+  }
 }
-
-// Call the function with the desired number of rows
 printReverseTriangle(5);
+//or
+const printReverseTriangle = (rows) => {
+  for (let i = rows; i >= 1; i--) {
+    console.log(" ".repeat(rows - i) + "*".repeat(2 * i - 1));
+  }
+};
 
-    
+printReverseTriangle(6);
 
 // right-angled triangle pattern with a constant number of stars
+// *****
+//  *****
+//   *****
+//    *****
+//     *****
 function printStarPattern(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let star = "";
-        // Add spaces
-        for (let j = 1; j <= i; j++) {
-            star += " ";
-        }
-        // Add stars
-        for (let k = 1; k <= rows; k++) {
-            star += "*";
-        }
-        console.log(star);
+  for (let i = 1; i <= rows; i++) {
+    let star = "";
+    // Add spaces
+    for (let j = 1; j <= i; j++) {
+      star += " ";
     }
+    // Add stars
+    for (let k = 1; k <= rows; k++) {
+      star += "*";
+    }
+    console.log(star);
+  }
 }
-
-// Call the function with the number of rows
 printStarPattern(5);
-// *****  
-//  ***** 
-//   *****  
-//    *****  
-//     *****  
+//or
+const printStarPattern = (rows) => {
+  for (let i = 1; i <= rows; i++) {
+    console.log(" ".repeat(i) + "*".repeat(rows));
+  }
+};
+
+printStarPattern(5);
 
 //reverse
-    //      *****
-    //     *****
-    //    *****
-    //   *****
-    //  *****
+//      *****
+//     *****
+//    *****
+//   *****
+//  *****
 function printStarPattern(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let star = "";
-        for (let j = rows; j >= i; j--) {
-            star += " ";
-        }
-        for (let k = 1; k <= rows; k++) {
-            star += "*";
-        }
-        console.log(star);
+  for (let i = 1; i <= rows; i++) {
+    let star = "";
+    for (let j = rows; j >= i; j--) {
+      star += " ";
     }
+    for (let k = 1; k <= rows; k++) {
+      star += "*";
+    }
+    console.log(star);
+  }
 }
 let userInput = parseInt(prompt("Enter the number of rows: "));
 printStarPattern(userInput);
 
-
 //
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
-        for (let j = rows; j >=i ; j--) {
-            line += ' ';
-        }
-        for (let k = 1; k <= i; k++) {
-            line += '*';
-        }
-
-        console.log(line);
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
+    for (let j = rows; j >= i; j--) {
+      line += " ";
     }
+    for (let k = 1; k <= i; k++) {
+      line += "*";
+    }
+
+    console.log(line);
+  }
 }
 printTriangle(8);
 
@@ -215,19 +247,18 @@ printTriangle(8);
 //   *******
 //  ********
 
-
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
-        for (let j = 1; j <=i ; j++) {
-            line += ' ';
-        }
-        for (let k = rows; k >= i; k--) {
-            line += '*';
-        }
-
-        console.log(line);
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+      line += " ";
     }
+    for (let k = rows; k >= i; k--) {
+      line += "*";
+    }
+
+    console.log(line);
+  }
 }
 printTriangle(5);
 //  *****
@@ -237,60 +268,56 @@ printTriangle(5);
 //      *
 
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
 
-        // Add spaces before stars
-        for (let j = rows; j >=i ; j--) {
-            line += ' ';
-        }
-
-        // Add stars with space
-        for (let k = 1; k <= i; k++) {
-            line += '* ';
-        }
-
-        console.log(line);
+    // Add spaces before stars
+    for (let j = rows; j >= i; j--) {
+      line += " ";
     }
+
+    // Add stars with space
+    for (let k = 1; k <= i; k++) {
+      line += "* ";
+    }
+
+    console.log(line);
+  }
 }
 
 // Call the function with the desired number of rows
 printTriangle(5);
-//      * 
-//     * * 
-//    * * * 
-//   * * * * 
-//  * * * * * 
-
+//      *
+//     * *
+//    * * *
+//   * * * *
+//  * * * * *
 
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
 
-        // Add spaces before stars
-        for (let j = 1; j <=i ; j++) {
-            line += ' ';
-        }
-
-        // Add stars with space
-        for (let k = rows; k >= i; k--) {
-            line += '* ';
-        }
-
-        console.log(line);
+    // Add spaces before stars
+    for (let j = 1; j <= i; j++) {
+      line += " ";
     }
+
+    // Add stars with space
+    for (let k = rows; k >= i; k--) {
+      line += "* ";
+    }
+
+    console.log(line);
+  }
 }
 
 // Call the function with the desired number of rows
 printTriangle(5);
-//  * * * * * 
-//   * * * * 
-//    * * * 
-//     * * 
-//      * 
-
-
-
+//  * * * * *
+//   * * * *
+//    * * *
+//     * *
+//      *
 
 // *
 // **
@@ -303,33 +330,31 @@ printTriangle(5);
 // *
 
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
 
-        // Add spaces before stars
-        for (let j = 1; j <=i ; j++) {
-            line += '*';
-        }
-
-        console.log(line);
+    // Add spaces before stars
+    for (let j = 1; j <= i; j++) {
+      line += "*";
     }
 
- for (let i = 1; i <= rows-1; i++) {
-        let line = '';
+    console.log(line);
+  }
 
-        // Add spaces before stars
-        for (let j = rows-1; j >=i ; j--) {
-            line += '*';
-        }
+  for (let i = 1; i <= rows - 1; i++) {
+    let line = "";
 
-        console.log(line);
+    // Add spaces before stars
+    for (let j = rows - 1; j >= i; j--) {
+      line += "*";
     }
+
+    console.log(line);
+  }
 }
-
 
 // Call the function with the desired number of rows
 printTriangle(5);
-
 
 //      *
 //     **
@@ -341,75 +366,72 @@ printTriangle(5);
 //     **
 //      *
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
-        for(let j=rows;j>=i;j--){
-            line+= " ";
-        
-        }
-        for (let k = 1; k <=i ; k++) {
-            line += '*';
-        }
-
-        console.log(line);
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
+    for (let j = rows; j >= i; j--) {
+      line += " ";
     }
-    
-     for (let i = 1; i <= rows-1; i++) {
-        let line = '';
-        for(let j=1;j<=i+1;j++){//follow i+1 for extra space
-            line+= " ";
-        
-        }
-        for (let k = rows-1; k >=i ; k--) {
-            line += '*';
-        }
-
-        console.log(line);
+    for (let k = 1; k <= i; k++) {
+      line += "*";
     }
 
+    console.log(line);
+  }
+
+  for (let i = 1; i <= rows - 1; i++) {
+    let line = "";
+    for (let j = 1; j <= i + 1; j++) {
+      //follow i+1 for extra space
+      line += " ";
+    }
+    for (let k = rows - 1; k >= i; k--) {
+      line += "*";
+    }
+
+    console.log(line);
+  }
 }
 
 printTriangle(5);
 
-
-//  * * * * * 
-//   * * * * 
-//    * * * 
-//     * * 
-//      * 
-//      * 
-//     * * 
-//    * * * 
-//   * * * * 
-//  * * * * * 
+//  * * * * *
+//   * * * *
+//    * * *
+//     * *
+//      *
+//      *
+//     * *
+//    * * *
+//   * * * *
+//  * * * * *
 
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
 
-        for (let j = 1; j <= i; j++) {
-            line += ' ';
-        }
-
-        for (let k = rows; k >= i; k--) {
-            line += '* ';
-        }
-
-        console.log(line);
+    for (let j = 1; j <= i; j++) {
+      line += " ";
     }
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
 
-        for (let j = rows; j >= i; j--) {
-            line += ' ';
-        }
-
-        for (let k = 1; k <= i; k++) {
-            line += '* ';
-        }
-
-        console.log(line);
+    for (let k = rows; k >= i; k--) {
+      line += "* ";
     }
+
+    console.log(line);
+  }
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
+
+    for (let j = rows; j >= i; j--) {
+      line += " ";
+    }
+
+    for (let k = 1; k <= i; k++) {
+      line += "* ";
+    }
+
+    console.log(line);
+  }
 }
 
 printTriangle(5);
@@ -423,17 +445,17 @@ printTriangle(5);
 // *******
 
 function printTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-     let line = '';
-     for (let j = 1; j<=rows ; j++) {
-         if(i ===1 || i=== rows || j=== 1 || j=== rows){
-              line += '*';
-         } else{
-             line+= " ";
-         }
-     }
+  for (let i = 1; i <= rows; i++) {
+    let line = "";
+    for (let j = 1; j <= rows; j++) {
+      if (i === 1 || i === rows || j === 1 || j === rows) {
+        line += "*";
+      } else {
+        line += " ";
+      }
+    }
 
-     console.log(line);
- }
+    console.log(line);
+  }
 }
 printTriangle(7);

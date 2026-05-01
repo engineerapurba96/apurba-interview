@@ -21,6 +21,17 @@ const str2 = "hello";
 const newstr2 = str2.slice(0, 3).toUpperCase() + str2.slice(3);
 console.log(newstr2); //HELlo
 
+// slice() is a string (and array) method that extracts a portion of data and returns it as a new value without changing the original.
+// slice(startIndex, endIndex)
+// startIndex → where extraction begins
+// endIndex (optional) → where extraction stops (not included)
+// const str = "hello";
+
+// console.log(str.slice(0, 2)); // "he"
+// console.log(str.slice(1, 4)); // "ell"
+// str.slice(-1) // "o"  it will take from last
+// console.log(str.slice(-2));   // "lo"
+
 //using for loop
 
 const str3 = "hello";
