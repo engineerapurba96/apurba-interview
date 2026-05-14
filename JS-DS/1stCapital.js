@@ -35,8 +35,7 @@ console.log(newstr2); //HELlo
 //using for loop
 
 const str3 = "hello";
-let newstr3 = ""; // Initialize an empty string
-
+let newstr3 = ""; 
 for (let i = 0; i < str3.length; i++) {
   if (i === 0) {
     // Capitalize the first letter
@@ -51,8 +50,7 @@ console.log(newstr3); // Output: Hello
 
 //3letter
 const str4 = "hello";
-let newstr4 = ""; // Initialize an empty string
-
+let newstr4 = ""; 
 for (let i = 0; i < str4.length; i++) {
   if (i < 3) {
     // Capitalize the first three letters

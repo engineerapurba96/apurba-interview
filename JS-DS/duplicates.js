@@ -48,8 +48,8 @@ console.log(duplicates); //[1,5]
 // arr.indexOf(5) returns 1 (first occurrence index).
 // Current index is 1.
 // Since 1 === 1, this condition is false, meaning 5 is not considered a duplicate here.
-// Element 1 (Index 2):
 
+// Element 1 (Index 2):
 // arr.indexOf(1) returns 0 (first occurrence index).
 // Current index is 2.
 // Since 0 !== 2, this condition is true, meaning 1 is a duplicate, so it gets added to the duplicates array.
