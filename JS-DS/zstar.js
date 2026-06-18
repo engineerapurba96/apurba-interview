@@ -9,6 +9,24 @@ function printStars(rows) {
 }
 
 printStars(5);
+// Star Pattern Notes
+
+// i = Row number
+// j = Star counter
+
+// Outer loop (i) -> Controls rows
+// Inner loop (j) -> Controls stars
+
+// j <= i means print stars equal to row number
+
+// Row 1 -> *
+// Row 2 -> **
+// Row 3 -> ***
+// Row 4 -> ****
+// Row 5 -> *****
+
+// Trick:
+// Number of stars = Row number
 
 // or
 const printStar = (row) => {

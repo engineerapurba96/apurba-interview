@@ -1,4 +1,16 @@
 function sumDigit(n) {
+  let sum = 0;
+
+  for (let digit of n.toString()) {
+    sum += Number(digit);
+  }
+
+  return sum;
+}
+
+console.log(sumDigit(33432)); // 15
+
+function sumDigit(n) {
   if (n < 1) {
     throw new Error("Number must be positive");
   }

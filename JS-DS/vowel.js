@@ -53,6 +53,7 @@ function findVowels(str) {
 
   for (let char of str.toLowerCase()) {
     if (vowels.includes(char)) {
+      //  if (vowels.includes(char) && !foundVowels.includes(char)) {//to remove duplicate
       foundVowels.push(char);
       count++;
     }
@@ -96,3 +97,23 @@ function calcVowCons(str) {
 }
 
 console.log(calcVowCons("Hello    World"));
+
+//duplicate vowel remove
+function findVowels(str) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  const foundVowels = [];
+
+  for (let char of str.toLowerCase()) {
+    if (vowels.includes(char) && !foundVowels.includes(char)) {
+      foundVowels.push(char);
+    }
+  }
+
+  return foundVowels;
+}
+
+// Example
+const inputString = "aaaeeuyuyuiiib";
+const vowelsFound = findVowels(inputString);
+
+console.log(vowelsFound);
