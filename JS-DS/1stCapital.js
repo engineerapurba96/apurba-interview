@@ -1,5 +1,6 @@
 const str = "hello";
 const newstr = str.charAt(0).toUpperCase() + str.slice(1);
+//slice(1) means Start from index 1 and return everything until the end of the string.
 console.log(newstr); //Hello
 
 //or
